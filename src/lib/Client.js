@@ -21,9 +21,34 @@ class Client {
     let stage = process.env.STAGE || 'development';
     this.config = new Config('config/' + stage + '.yml');
 
-    IdService.initialize(this.config.token_id_service_url, this.config.identityKey);
-    EthService.initialize(this.config.token_ethereum_service_url, this.config.identityKey, this.config.paymentKey);
-    FiatService.initialize(this.config.token_exchange_service_url);
+    var network = this.config.network;
+    if (!network) {
+      if (stage == 'production') {
+        network = 'mainnet';
+      } else {
+        network = 'ropsten';
+      }
+    }
+
+    var eth_service_url;
+    if (this.config.toshi_ethereum_service_url) {
+      eth_service_url = this.config.toshi_ethereum_service_url;
+    } else if (network == 'mainnet') {
+      eth_service_url = "https://ethereum.service.toshi.org";
+    } else if (network == 'ropsten') {
+      eth_service_url = "https://toshi-eth-service-ropsten.herokuapp.com";
+    }  else if (network == 'kovan') {
+      eth_service_url = "https://toshi-eth-service-kovan.herokuapp.com";
+    } else if (network == 'rinkeby') {
+      eth_service_url = "https://toshi-eth-service-rinkeby.herokuapp.com";
+    } else {
+      Logger.error("Invalid $NETWORK option: '" + network + "'. Valid options are 'mainnet', 'ropsten', 'kovan', 'rinkeby'");
+      return;
+    }
+
+    IdService.initialize(this.config.toshi_id_service_url, this.config.identityKey);
+    EthService.initialize(eth_service_url, this.config.identityKey, this.config.paymentKey);
+    FiatService.initialize(this.config.toshi_exchange_service_url);
 
     Logger.info("TOKEN ID: " + this.config.tokenIdAddress);
     Logger.info("PAYMENT ADDRESS KEY: " + this.config.paymentAddress);

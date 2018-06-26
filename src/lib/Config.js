@@ -8,9 +8,15 @@ const required_keys = ['storage', 'redis']
 class Config {
   constructor(path) {
     let config = yaml.safeLoad(fs.readFileSync(path, 'utf8'));
-    for(let k in config) this[k]=config[k];
+    for (let k in config) {
+      if (typeof(config[k]) == 'string' && config[k].startsWith("$")) {
+        this[k] = process.env[config[k].substr(1)];
+      } else {
+        this[k] = config[k];
+      }
+    }
 
-    for(let k of required_keys) {
+    for (let k of required_keys) {
       if (!this[k]) {
         throw new Error(`Missing 'storage' property in config file: ${path}`);
       }

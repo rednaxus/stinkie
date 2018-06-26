@@ -1,6 +1,6 @@
 {
   "name": "toshi-app-js",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "",
   "main": "src/bot.js",
   "dependencies": {
