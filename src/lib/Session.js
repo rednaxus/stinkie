@@ -155,7 +155,8 @@ class Session {
           value: value,
           txHash: result.txHash,
           fromAddress: this.config.tokenIdAddress,
-          toAddress: options.to
+          toAddress: options.to,
+          networkId: this.config.networkId
         }));
       }
       if (callback) { callback(session, error, result); }
@@ -171,7 +172,8 @@ class Session {
     this.reply(SOFA.PaymentRequest({
       body: message,
       value: value,
-      destinationAddress: this.config.paymentAddress
+      destinationAddress: this.config.paymentAddress,
+      networkId: this.config.networkId
     }));
   }
 

@@ -33,15 +33,23 @@ class Client {
     var eth_service_url;
     if (this.config.toshi_ethereum_service_url) {
       eth_service_url = this.config.toshi_ethereum_service_url;
-    } else if (network == 'mainnet') {
-      eth_service_url = "https://ethereum.service.toshi.org";
+    }
+    if (network == 'mainnet') {
+      eth_service_url = eth_service_url || "https://ethereum.service.toshi.org";
+      this.config.networkId = this.config.networkId || "1";
     } else if (network == 'ropsten') {
-      eth_service_url = "https://toshi-eth-service-ropsten.herokuapp.com";
+      eth_service_url = eth_service_url || "https://toshi-eth-service-ropsten.herokuapp.com";
+      this.config.networkId = this.config.networkId || "3";
     }  else if (network == 'kovan') {
-      eth_service_url = "https://toshi-eth-service-kovan.herokuapp.com";
+      eth_service_url = eth_service_url || "https://toshi-eth-service-kovan.herokuapp.com";
+      this.config.networkId = this.config.networkId || "42";
     } else if (network == 'rinkeby') {
-      eth_service_url = "https://toshi-eth-service-rinkeby.herokuapp.com";
-    } else {
+      eth_service_url = eth_service_url || "https://toshi-eth-service-rinkeby.herokuapp.com";
+      this.config.networkId = this.config.networkId || "4";
+    } else if (eth_service_url && !this.config.networkId) {
+      Logger.error("Must set `network` or `networkId` when setting `toshi_ethereum_service_url`");
+      return;
+    } else if (!(eth_service_url && this.config.networkId)) {
       Logger.error("Invalid $NETWORK option: '" + network + "'. Valid options are 'mainnet', 'ropsten', 'kovan', 'rinkeby'");
       return;
     }
