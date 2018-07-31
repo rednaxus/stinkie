@@ -1,6 +1,8 @@
 const Bot = require('./lib/Bot')
 const SOFA = require('sofa-js')
 const Fiat = require('./lib/Fiat')
+const Logger = require('./lib/Logger')
+//const util = require('util')
 
 let bot = new Bot()
 
@@ -41,6 +43,8 @@ function onCommand(session, command) {
     case 'donate':
       donate(session)
       break
+    case 'yo':
+      yo(session)
     }
 }
 
@@ -69,11 +73,24 @@ function onPayment(session, message) {
 // STATES
 
 function welcome(session) {
-  sendMessage(session, `Hello Token!`)
+  sendMessage(session, `Boo!`)
+}
+
+function yo(session) {
+  Logger.info('in yo ...')
+  session.reply(SOFA.Message({
+    body:  "What is your favorite color?",
+    controls: [
+      {type: "button", label: "Red", value: "red"},
+      {type: "button", label: "Green", value: "green"},
+      {type: "button", label: "Blue", value: "blue"}
+    ]
+  }))
 }
 
 function pong(session) {
   sendMessage(session, `Pong`)
+  //Logger.info(util.inspect(session))
 }
 
 // example of how to store state on each user
@@ -96,11 +113,15 @@ function sendMessage(session, message) {
   let controls = [
     {type: 'button', label: 'Ping', value: 'ping'},
     {type: 'button', label: 'Count', value: 'count'},
-    {type: 'button', label: 'Donate', value: 'donate'}
+    {type: 'button', label: 'Donate', value: 'donate'},
+    {type: 'button', label: 'Yo', value: 'yo'}
   ]
   session.reply(SOFA.Message({
     body: message,
     controls: controls,
-    showKeyboard: false,
+    showKeyboard: true,
   }))
 }
+
+
+

@@ -1,0 +1,106 @@
+bot_1              | [I] Session {
+bot_1              | [I]   bot: 
+bot_1              | [I]    Bot {
+bot_1              | [I]      client: 
+bot_1              | [I]       Client {
+bot_1              | [I]         bot: [Circular],
+bot_1              | [I]         rpcCalls: {},
+bot_1              | [I]         nextRpcId: 1,
+bot_1              | [I]         config: [Object],
+bot_1              | [I]         store: [Object],
+bot_1              | [I]         subscriber: [Object],
+bot_1              | [I]         rpcSubscriber: [Object],
+bot_1              | [I]         publisher: [Object] },
+bot_1              | [I]      rootThread: 
+bot_1              | [I]       Thread {
+bot_1              | [I]         bot: [Circular],
+bot_1              | [I]         hearings: [],
+bot_1              | [I]         onOpen: null,
+bot_1              | [I]         onClose: null,
+bot_1              | [I]         states: {} },
+bot_1              | [I]      onAppManifest: [Function],
+bot_1              | [I]      onCommand: [Function],
+bot_1              | [I]      onInit: [Function],
+bot_1              | [I]      onInitRequest: [Function],
+bot_1              | [I]      onMessage: [Function],
+bot_1              | [I]      onPayment: [Function],
+bot_1              | [I]      onPaymentRequest: [Function],
+bot_1              | [I]      onTokenPayment: [Function],
+bot_1              | [I]      threads: {},
+bot_1              | [I]      onEvent: [Function] },
+bot_1              | [I]   config: 
+bot_1              | [I]    Config {
+bot_1              | [I]      server: 'https://chat.service.toshi.org',
+bot_1              | [I]      toshi_id_service_url: 'https://identity.service.toshi.org',
+bot_1              | [I]      toshi_exchange_service_url: 'https://exchange.service.toshi.org',
+bot_1              | [I]      network: 'ropsten',
+bot_1              | [I]      networkId: '3',
+bot_1              | [I]      redis: 
+bot_1              | [I]       { envKey: 'REDIS_URL',
+bot_1              | [I]         timeout: 2000,
+bot_1              | [I]         host: 'redis',
+bot_1              | [I]         port: '6379',
+bot_1              | [I]         password: 'rlcMWNrxXgqS0xM8aWCYuE0R' },
+bot_1              | [I]      storage: 
+bot_1              | [I]       { envKey: 'DATABASE_URL',
+bot_1              | [I]         sslmode: 'disable',
+bot_1              | [I]         postgres: [Object] },
+bot_1              | [I]      seedMnemonic: 'skin demise quality thing long fitness tribe eager prison fat tip student',
+bot_1              | [I]      identityKey: 
+bot_1              | [I]       PrivateKey {
+bot_1              | [I]         keypair: <Key priv: bb6ec8bb28095c07e0d9245bed832b58d22130062b88ae1ec0b543bb99364fc2 pub: <EC Point x: 4d6fb2a313fb011ea4d5a7889faf92a8f2b72b2e9ba359f83a20c524ba664c64 y: e33848b64f2aa0f298e065cb48e332397119c65feb2814c6f3bcd5def5cc22d2> >,
+bot_1              | [I]         _address: [Array] },
+bot_1              | [I]      paymentKey: 
+bot_1              | [I]       PrivateKey {
+bot_1              | [I]         keypair: <Key priv: dbc34bdfd63318262025c82eb0c819d890de353ae0d89e9f873ebe943e0f3630 pub: <EC Point x: 20376e4e39a376a44b6f426a87baf0bf075c22a3cc94d30d3232669a8ca0ca35 y: 95fff25b6d57253ff1f48212cdd8b73e1d1507e60e5b49eaf79e0175cd694a31> >,
+bot_1              | [I]         _address: [Array] },
+bot_1              | [I]      tokenIdAddress: '0x914d86fe63b6842b5239d55301329a9a7f98008e',
+bot_1              | [I]      paymentAddress: '0x54bfa2846ff57f4bf7174832e1736ee1d5acc2b7' },
+bot_1              | [I]   storage: 
+bot_1              | [I]    PSQLStore {
+bot_1              | [I]      config: 
+bot_1              | [I]       { user: 'token',
+bot_1              | [I]         password: 'va5uOdJBqu2dZ1',
+bot_1              | [I]         host: 'postgres',
+bot_1              | [I]         port: '5432',
+bot_1              | [I]         database: 'token',
+bot_1              | [I]         max: 5,
+bot_1              | [I]         idleTimeoutMillis: 30000 },
+bot_1              | [I]      schema: 'development',
+bot_1              | [I]      pgPool: 
+bot_1              | [I]       BoundPool {
+bot_1              | [I]         domain: null,
+bot_1              | [I]         _events: [Object],
+bot_1              | [I]         _eventsCount: 1,
+bot_1              | [I]         _maxListeners: undefined,
+bot_1              | [I]         options: [Object],
+bot_1              | [I]         log: [Function],
+bot_1              | [I]         Client: [Object],
+bot_1              | [I]         Promise: [Function: Promise],
+bot_1              | [I]         pool: [Object],
+bot_1              | [I]         onCreate: undefined } },
+bot_1              | [I]   address: '0xfac1f380268128d1a19efbc9151798f2e3529aae',
+bot_1              | [I]   data: 
+bot_1              | [I]    { address: '0xfac1f380268128d1a19efbc9151798f2e3529aae',
+bot_1              | [I]      language: 'en',
+bot_1              | [I]      timestamp: 1533063854,
+bot_1              | [I]      paymentAddress: '0x9ead6e0de21492124b3ca416bff73d3b6659d6f7' },
+bot_1              | [I]   thread: null,
+bot_1              | [I]   state: null,
+bot_1              | [I]   user: 
+bot_1              | [I]    { username: 'on40_2',
+bot_1              | [I]      token_id: '0xfac1f380268128d1a19efbc9151798f2e3529aae',
+bot_1              | [I]      toshi_id: '0xfac1f380268128d1a19efbc9151798f2e3529aae',
+bot_1              | [I]      payment_address: '0x9ead6e0de21492124b3ca416bff73d3b6659d6f7',
+bot_1              | [I]      avatar: 'https://bucketeer-7c93db19-eda4-413d-9025-fca45df5773a.s3.amazonaws.com/public/identicon/0x9ead6e0de21492124b3ca416bff73d3b6659d6f7.png',
+bot_1              | [I]      name: null,
+bot_1              | [I]      about: null,
+bot_1              | [I]      location: null,
+bot_1              | [I]      is_app: false,
+bot_1              | [I]      public: false,
+bot_1              | [I]      reputation_score: null,
+bot_1              | [I]      average_rating: 0,
+bot_1              | [I]      review_count: 0,
+bot_1              | [I]      custom: 
+bot_1              | [I]       { avatar: 'https://bucketeer-7c93db19-eda4-413d-9025-fca45df5773a.s3.amazonaws.com/public/identicon/0x9ead6e0de21492124b3ca416bff73d3b6659d6f7.png' } } }
+
